@@ -1,0 +1,119 @@
+/* Ivory, dusty rose, plum and antique gold. */
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{--wed-bg:#f2e6e8;--wed-bg-soft:#e9dce1;--wed-paper:#fffcf8;--wed-paper-deep:#fbf5ef;--wed-green:#70435e;--wed-green-soft:#956c83;--wed-gold:#9b7948;--wed-text:#3f3040;--wed-text-soft:#695b65;height:auto;max-height:none;min-height:100%;overflow-x:hidden}
+html{overflow-y:auto;scroll-behavior:smooth}
+body{overflow-y:visible;background:radial-gradient(ellipse at 20% 10%,#fff9f2,transparent 60%),linear-gradient(135deg,#f1e5e9,#e8e9e1);color:var(--wed-text)}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #9b7948;outline-offset:4px}
+h1:focus,h2:focus{outline:none}
+.language-toggle{position:fixed;top:15px;right:16px;z-index:100;display:flex;align-items:center;gap:8px;border:1px solid #d6bdc8;border-radius:30px;background:#fffdf9f5;color:#70435e;padding:9px 13px;font:700 11px Nunito,sans-serif;cursor:pointer;box-shadow:0 3px 16px #70435e12}
+.language-toggle span[lang]{font:500 12px 'Noto Serif Telugu',serif}
+.toggle-track{width:26px;height:15px;border-radius:20px;background:#e2d2db;padding:2px}
+.toggle-track>span{display:block;width:11px;height:11px;background:#70435e;border-radius:50%;transition:transform .2s}
+.language-toggle[aria-pressed=true] .toggle-track>span{transform:translateX(11px)}
+.wed-session{padding:80px 22px 38px;min-height:100svh;align-items:flex-start}
+.wed-session-1{align-items:center}
+.wed-card{width:min(100%,780px);background:linear-gradient(155deg,#fffdfa,#fcf6f1);border:1px solid #d9c3cd;border-radius:26px;box-shadow:0 18px 70px #67405516}
+/* Override the original template's fixed height and flex centering. */
+body:not([data-variant="premium"]) .wed-session-2 .wed-card,
+body:not([data-variant="premium"]) .wed-session-3 .wed-card{height:auto;min-height:0;display:block;justify-content:initial;padding:28px 40px 36px}
+.wed-card-controls{position:relative;top:auto;left:auto;right:auto;z-index:4;display:flex;justify-content:space-between;min-height:42px;margin:0 0 18px}
+.wed-session-2 .wed-card-controls{justify-content:flex-end}
+.wed-mute-btn,.wed-back-btn{background:#70435e!important;color:#fffaf6!important;border:1px solid #70435e22;box-shadow:0 3px 10px #70435e15}
+.wed-details-deco{opacity:.13;width:100%;z-index:0}
+.wed-details-deco-top{top:0;transform:translate(-50%,-50%) rotate(180deg)}
+.wed-details-deco-bottom{bottom:0;transform:translate(-50%,50%)}
+.wed-details-card>*:not(.wed-details-deco){position:relative;z-index:2}
+body:not([data-variant="premium"]) .wed-details-card .wed-heading{display:block;width:100%;max-width:100%;margin:0 auto 12px;padding:0;font-size:clamp(1.8rem,4.5vw,2.55rem);line-height:1.4;color:#70435e;overflow-wrap:break-word;opacity:1;transform:none}
+.hosts{margin:0 auto 30px;max-width:100%;font-size:1.15rem;line-height:1.65;color:#695b65}
+.wed-date-session{margin:0 auto 26px;width:100%;color:#8a683b}
+.wed-date-month,.wed-date-row,.wed-date-day,.wed-date-number,.wed-date-time{opacity:1!important;transform:none!important}
+.wed-date-month{font:600 .9rem/1.6 Nunito,sans-serif;letter-spacing:.18em;color:#8a683b}
+.wed-date-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:22px;align-items:center;margin-top:15px}
+.wed-date-side{min-width:0;gap:9px}
+.wed-date-day,.wed-date-time{font:600 .8rem/1.7 Nunito,sans-serif;letter-spacing:.08em;white-space:normal;color:#695b65}
+.wed-date-line{background:#d3bc9d;width:100%}
+.wed-date-number{font:500 4.4rem/1 'Cormorant Garamond',serif;color:#9b7948;margin:0 5px}
+.muhurtham-countdown{width:100%;max-width:480px;margin:0 auto 22px;color:#70435e}
+.countdown-title{font:700 .7rem/1.8 Nunito,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin:0 0 13px;color:#695b65}
+.countdown-units{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.countdown-unit{min-width:0;border:1px solid #dfc8d2;border-radius:13px;padding:16px 4px 13px;background:linear-gradient(160deg,#fbf0f3,#f4e6ed)}
+.countdown-value{display:block;font:600 clamp(1.9rem,5vw,2.7rem)/1.2 'Cormorant Garamond',serif;font-variant-numeric:tabular-nums;color:#70435e}
+.countdown-label{display:block;margin-top:7px;font:700 .66rem/1.7 Nunito,sans-serif;color:#695b65}
+.countdown-complete{font-size:1.1rem;line-height:1.6;margin:15px 0 0;color:#70435e}
+.lagna{margin:0 auto 30px;line-height:1.7;font-size:1.1rem;color:#8a683b}
+.event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 auto 34px;width:100%;max-width:560px}
+.event-grid>div{padding:21px 12px;border:1px solid #e4d6cb;border-radius:14px;background:#f7f1e8}
+.event-grid h3{font-size:1.65rem;line-height:1.4;font-weight:600;color:#70435e;margin:0 0 9px}
+.event-grid p{font-size:1.05rem;line-height:1.7;margin:3px 0;color:#695b65}
+.venue-title{font-size:1.9rem;line-height:1.4;font-weight:600;color:#70435e;margin:0 auto 10px}
+.wed-details-card .wed-address{font-size:1.1rem;line-height:1.8;max-width:470px;margin:0 auto 22px;color:#695b65;opacity:1;transform:none}
+.wed-btn{background:linear-gradient(135deg,#875772,#653a55);color:#fffaf7;font-size:.88rem;line-height:1.5;padding:13px 24px;white-space:normal;box-shadow:0 4px 14px #70435e10}
+.wed-btn:hover{box-shadow:0 7px 18px #70435e22}
+body.wed-inline-contact-buttons .wed-action-row{display:flex;flex-direction:column;gap:14px;opacity:1;transform:none;margin:0 auto 28px;width:100%}
+body.wed-inline-contact-buttons .wed-contact-links{max-width:460px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
+body.wed-inline-contact-buttons .wed-contact-links .wed-btn-contact{display:block;width:auto;min-width:0;background:#f5e9ef;color:#70435e;border:1px solid #dec6d2;padding:12px 6px;font-size:.9rem;line-height:1.6;text-decoration:none}
+.wed-session-3 .wed-action-row .wed-btn-link{margin:0}
+.wed-details-card .wed-warm-note{font:400 .95rem/1.9 Nunito,sans-serif;max-width:500px;margin:0 auto 22px;color:#695b65;opacity:1;transform:none}
+.wed-details-floret-row{color:#a28350;opacity:1!important;transform:none!important;margin:0 0 22px}
+.family-details{border-top:1px solid #dfcbd2;margin:0;padding-top:22px;text-align:left;color:#695b65}
+.family-details summary{text-align:center;cursor:pointer;font-size:1.16rem;line-height:1.8;color:#70435e;margin-bottom:14px}
+.family-details p{font-size:1.03rem;line-height:1.85;margin:0 0 16px}
+.family-details p:last-child{margin-bottom:0}
+.wed-kicker{position:relative;z-index:2;font:700 .75rem/1.8 Nunito,sans-serif;letter-spacing:.15em;color:#70435e;margin:0 0 12px}
+.wed-ring-center{width:min(100%,460px);margin:0 auto 22px;z-index:2}
+.wed-ring-image{max-width:100%!important;transform:none!important}
+.wed-couple{color:#70435e;line-height:1.25!important;overflow:visible;font-size:clamp(3.5rem,9vw,5rem)!important}
+.wed-couple-vertical{width:70%!important;gap:2px;line-height:1.25!important}
+.wed-couple-vertical #wed-groom-name,.wed-couple-vertical #wed-bride-name{align-self:center;padding:0}
+.wed-couple-vertical .wed-amp{font-size:.6em;line-height:1;margin:0;color:#9b7948}
+body:not([data-variant="premium"]) .wed-session-2 .wed-info-row{display:block;position:relative;z-index:3;margin:0;text-align:center}
+.wed-session-2 .wed-parents-dual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;width:100%;margin:0 auto 26px;flex:none;max-width:600px}
+.wed-parents-col{max-width:none;min-width:0}
+.wed-parent-prefix{font-size:.7rem;line-height:1.8;letter-spacing:.06em;color:#8a683b;white-space:normal;margin-bottom:7px}
+.wed-parent-name{font-size:1.12rem;line-height:1.65;color:#695b65}
+body:not([data-variant="premium"]) .wed-session-2 #wed-to-session-3{margin:0 auto;display:table;align-self:center}
+.wed-invite-deco-top-right{width:155px;opacity:.7}
+.wed-invite-deco-bottom-left{width:130px;opacity:.65}
+.wed-invite-deco-bottom-center{position:relative;display:block;left:auto;bottom:auto;transform:none;width:170px;margin:28px auto -12px;order:0}
+/* Keep decorative couple artwork below the invitation text. */
+.wed-card-invite{display:flex!important;flex-direction:column;align-items:stretch}
+.wed-card-invite .wed-invite-deco-bottom-center{order:5}
+.wed-envelope-top-text{color:#70435e}
+.wed-seal{background:linear-gradient(135deg,#a58162,#805166);color:#fff8ed}
+html[lang=te] [data-i18n]{font-family:'Noto Serif Telugu',serif;letter-spacing:0;text-transform:none;line-height:1.95}
+html[lang=te] .wed-details-card .wed-heading{font-family:'Noto Serif Telugu',serif;font-size:clamp(1.4rem,3.8vw,2rem);line-height:1.9}
+html[lang=te] .wed-couple [data-i18n]{font-size:.59em;line-height:1.85}
+html[lang=te] .wed-parent-prefix{font-size:.72rem}
+html[lang=te] .wed-parent-name{font-size:.9rem}
+html[lang=te] .wed-kicker,html[lang=te] .hosts{font-size:.9rem}
+html[lang=te] .wed-date-month{font-size:1rem}
+html[lang=te] .wed-date-day,html[lang=te] .wed-date-time{font-size:.78rem}
+html[lang=te] .countdown-title{font-size:.8rem}
+html[lang=te] .countdown-label{font-size:.7rem}
+html[lang=te] .event-grid h3{font-size:1.25rem}
+html[lang=te] .event-grid p{font-size:.85rem}
+html[lang=te] .lagna,html[lang=te] .wed-details-card .wed-address{font-size:.9rem}
+html[lang=te] .venue-title{font-size:1.45rem}
+html[lang=te] .wed-btn{font-size:.82rem}
+html[lang=te] .wed-warm-note,html[lang=te] .family-details p{font-size:.88rem}
+html[lang=te] .family-details summary{font-size:1rem}
+html[lang=te] .wed-envelope-top-text{font-size:1.6rem}
+@media(max-width:600px){
+ .wed-session{padding:76px 12px 24px}
+ body:not([data-variant="premium"]) .wed-session-2 .wed-card,body:not([data-variant="premium"]) .wed-session-3 .wed-card{padding:20px 18px 28px;border-radius:20px}
+ .wed-card-controls{margin-bottom:22px}
+ .wed-date-row{gap:12px}.wed-date-day,.wed-date-time{font-size:.72rem;letter-spacing:.02em}
+ .wed-date-number{font-size:3.9rem}.hosts{font-size:1.05rem;margin-bottom:25px}
+ .countdown-units{gap:8px}.countdown-unit{padding:13px 3px 11px}.countdown-label{font-size:.61rem}
+ .event-grid{gap:10px;margin-bottom:28px}.event-grid>div{padding:17px 8px}.event-grid h3{font-size:1.45rem}.event-grid p{font-size:.95rem}
+ .venue-title{font-size:1.7rem}.wed-details-card .wed-address{font-size:1rem}
+ .wed-session-2 .wed-parents-dual{gap:16px}.wed-parent-name{font-size:1rem}
+ .wed-invite-deco-top-right{width:115px;opacity:.45}.wed-invite-deco-bottom-left{width:95px}
+ html[lang=te] .event-grid p{font-size:.76rem}html[lang=te] .countdown-label{font-size:.6rem}
+ html[lang=te] .wed-parent-name{font-size:.8rem}html[lang=te] .wed-date-time{font-size:.7rem}
+ html[lang=te] .family-details p{font-size:.83rem}
+}
+@media(max-width:360px){.wed-date-row{gap:7px}.wed-date-time{font-size:.64rem}.countdown-units{gap:5px}.event-grid{grid-template-columns:1fr}html[lang=te] .countdown-label{font-size:.55rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
