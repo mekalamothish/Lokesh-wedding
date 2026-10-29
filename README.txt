@@ -42,3 +42,10 @@ invitation and start the music.
 The music button pauses/resumes it; choosing Pause is respected.
 Google Fonts loads the typefaces over the internet; fallback fonts are included
 in the styles. Your host does not need a connection to the current Sites host.
+
+BUTTON ENTRANCE ANIMATION
+Buttons and links play one slow bounce per page load or refresh. Hidden
+invitation screens animate their controls only on their first appearance.
+Returning to a screen does not replay the effect. Reduced-motion preferences
+are respected. Adjust DURATION, STAGGER and START_DELAY in button-entrance.js
+to change the timing (milliseconds).
