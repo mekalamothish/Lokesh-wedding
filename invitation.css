@@ -117,3 +117,29 @@ html[lang=te] .wed-envelope-top-text{font-size:1.6rem}
 }
 @media(max-width:360px){.wed-date-row{gap:7px}.wed-date-time{font-size:.64rem}.countdown-units{gap:5px}.event-grid{grid-template-columns:1fr}html[lang=te] .countdown-label{font-size:.55rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Calm repeating pulse + bounce on selected primary actions. */
+.wedding-attention{--attention-rgb:112,67,94}
+#wed-open-btn.wedding-attention{--attention-rgb:165,129,98}
+.wed-mute-btn{display:inline-grid;place-items:center;padding:0}
+.wed-mute-btn svg{display:block;width:21px;height:21px;pointer-events:none}
+@keyframes weddingActionBounce{
+  0%,12%,68%,100%{translate:0 0}
+  30%{translate:0 -8px}
+  46%{translate:0 2px}
+  58%{translate:0 -2px}
+}
+@keyframes weddingActionPulse{
+  0%,100%{scale:1;box-shadow:0 0 0 0 rgba(var(--attention-rgb),.2),0 5px 16px #70435e14}
+  45%{scale:1.025;box-shadow:0 0 0 10px rgba(var(--attention-rgb),0),0 7px 20px #70435e20}
+  75%{scale:1;box-shadow:0 0 0 0 rgba(var(--attention-rgb),0),0 5px 16px #70435e14}
+}
+@media(prefers-reduced-motion:no-preference){
+  .wedding-attention.is-attention-visible.animate-pulse.animate-bounce{
+    animation:weddingActionBounce 3.6s cubic-bezier(.4,0,.35,1) infinite,weddingActionPulse 3.6s ease-in-out infinite;
+    animation-delay:var(--attention-delay,0ms),var(--attention-delay,0ms)
+  }
+  .wedding-attention.is-attention-visible.animate-pulse.animate-bounce:is(:hover,:focus-visible,:active){animation-play-state:paused}
+  .wed-envelope.is-open .wed-seal.wedding-attention{animation:none}
+}
+@media(prefers-reduced-motion:reduce){.wedding-attention{animation:none!important;translate:0 0;scale:1}}
