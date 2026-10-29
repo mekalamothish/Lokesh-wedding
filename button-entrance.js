@@ -1,33 +1,30 @@
-// Slow, staggered button entrances. State lasts only until this page is refreshed.
+// Bounce each control only when it first enters the viewport, once per refresh.
 (() => {
   const DURATION = 1800;
   const STAGGER = 160;
   const START_DELAY = 180;
+  const MIN_VISIBLE = .6;
   const selector = 'button, a[href], [role="button"]';
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (preference.matches || !Element.prototype.animate) return;
+  if (preference.matches || !Element.prototype.animate || !('IntersectionObserver' in window)) return;
 
   const played = new WeakSet();
   const running = new Map();
-  let framePending = false;
-
-  function visible(element) {
-    return element.getClientRects().length > 0;
-  }
-
-  function revealButtons() {
-    framePending = false;
+  function revealButtons(entries) {
     if (preference.matches) return;
-
-    // Finish a disappearing control rather than resuming a partial bounce later.
-    for (const [element, animation] of running) {
-      if (!visible(element)) animation.cancel();
-    }
-    const pending = [...document.querySelectorAll(selector)]
-      .filter(element => !played.has(element) && visible(element));
+    // Layout visibility alone is not enough: below-the-fold controls must wait
+    // until at least 60% is inside the viewport, with room below to see the bounce.
+    const pending = entries
+      .filter(entry => entry.isIntersecting && entry.intersectionRatio >= MIN_VISIBLE && !played.has(entry.target))
+      .map(entry => entry.target)
+      .sort((a, b) => {
+        const first = a.getBoundingClientRect(), second = b.getBoundingClientRect();
+        return first.top - second.top || first.left - second.left;
+      });
 
     pending.forEach((element, index) => {
       played.add(element);
+      observer.unobserve(element);
       try {
         // Individual translate/scale preserve existing transforms, including
         // the envelope seal's translate(-50%, -50%) centering and hover styles.
@@ -58,20 +55,15 @@
     });
   }
 
-  function scheduleReveal() {
-    if (framePending) return;
-    framePending = true;
-    window.requestAnimationFrame(revealButtons);
-  }
-
-  const observer = new MutationObserver(scheduleReveal);
+  const observer = new IntersectionObserver(revealButtons, {
+    threshold: MIN_VISIBLE,
+    rootMargin: '0px 0px -24px 0px'
+  });
   function start() {
-    // Only screen visibility changes matter; text, hover and language changes
-    // do not restart the animation. No animation state is stored in localStorage.
-    observer.observe(document.body, {
-      subtree: true, attributes: true, attributeFilter: ['hidden', 'open']
-    });
-    scheduleReveal();
+    // The observer also handles controls inside initially hidden invitation
+    // screens. A control is unobserved after its first reveal, so scrolling
+    // back, changing language, hovering, or returning to a screen never replays it.
+    document.querySelectorAll(selector).forEach(element => observer.observe(element));
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start, {once: true});

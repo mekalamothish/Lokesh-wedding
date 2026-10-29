@@ -44,8 +44,10 @@ Google Fonts loads the typefaces over the internet; fallback fonts are included
 in the styles. Your host does not need a connection to the current Sites host.
 
 BUTTON ENTRANCE ANIMATION
-Buttons and links play one slow bounce per page load or refresh. Hidden
-invitation screens animate their controls only on their first appearance.
+Buttons and links play one slow bounce when at least 60% enters the viewport.
+Below-the-fold controls wait until guests scroll to them; hidden-screen
+controls wait until their screen is opened and they come into view. Each
+control plays only once per page load or refresh.
 Returning to a screen does not replay the effect. Reduced-motion preferences
 are respected. Adjust DURATION, STAGGER and START_DELAY in button-entrance.js
 to change the timing (milliseconds).
