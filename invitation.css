@@ -103,6 +103,9 @@ html[lang=te] .wed-envelope-top-text{font-size:1.6rem}
 @media(max-width:600px){
  .wed-session{padding:76px 12px 24px}
  body:not([data-variant="premium"]) .wed-session-2 .wed-card,body:not([data-variant="premium"]) .wed-session-3 .wed-card{padding:20px 18px 28px;border-radius:20px}
+ /* Keep the couple's names comfortably inside the decorative ring on phones. */
+ .wed-session-2 .wed-ring-center{width:min(100%,360px)}
+ .wed-session-2 .wed-couple{width:86%!important;font-size:clamp(2.25rem,8vw,3.1rem)!important;line-height:1.12!important;}
  .wed-card-controls{margin-bottom:22px}
  .wed-date-row{gap:12px}.wed-date-day,.wed-date-time{font-size:.72rem;letter-spacing:.02em}
  .wed-date-number{font-size:3.9rem}.hosts{font-size:1.05rem;margin-bottom:25px}
@@ -115,7 +118,7 @@ html[lang=te] .wed-envelope-top-text{font-size:1.6rem}
  html[lang=te] .wed-parent-name{font-size:.8rem}html[lang=te] .wed-date-time{font-size:.7rem}
  html[lang=te] .family-details p{font-size:.83rem}
 }
-@media(max-width:360px){.wed-date-row{gap:7px}.wed-date-time{font-size:.64rem}.countdown-units{gap:5px}.event-grid{grid-template-columns:1fr}html[lang=te] .countdown-label{font-size:.55rem}}
+@media(max-width:360px){.wed-date-row{gap:7px}.wed-date-time{font-size:.64rem}.countdown-units{gap:5px}.event-grid{grid-template-columns:1fr}.wed-session-2 .wed-couple{width:88%!important;font-size:clamp(2rem,8.2vw,2.55rem)!important}html[lang=te] .countdown-label{font-size:.55rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Calm repeating pulse + bounce on selected primary actions. */
